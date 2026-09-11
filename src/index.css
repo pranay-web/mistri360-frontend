@@ -1,0 +1,155 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-card-border: hsl(var(--card-border));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-popover-border: hsl(var(--popover-border));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-primary-border: var(--primary-border);
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-secondary-border: var(--secondary-border);
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-muted-border: var(--muted-border);
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-accent-border: var(--accent-border);
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-destructive-border: var(--destructive-border);
+
+  --color-sidebar: hsl(var(--sidebar));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+
+  --font-sans: var(--app-font-sans);
+  --font-serif: var(--app-font-serif);
+  --font-mono: var(--app-font-mono);
+
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: calc(var(--radius) - 1px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 2px);
+}
+
+:root {
+  /* ── mistri360 — Ivory & Slate ─────────────────────────────────────────── */
+
+  /* Backgrounds */
+  --background: 220 18% 96%;          /* #F1F4F9 — warm cool-white workspace  */
+  --foreground: 224 28% 12%;          /* #131C32 — deep charcoal              */
+
+  /* Cards */
+  --card: 0 0% 100%;                  /* pure white                            */
+  --card-foreground: 224 28% 12%;
+  --card-border: 220 14% 88%;         /* subtle grey divider                   */
+
+  /* Popovers / dropdowns */
+  --popover: 0 0% 100%;
+  --popover-foreground: 224 28% 12%;
+  --popover-border: 220 14% 88%;
+
+  /* Primary — deep navy */
+  --primary: 222 62% 26%;             /* #1A3068 — authoritative navy          */
+  --primary-foreground: 0 0% 100%;
+
+  /* Secondary */
+  --secondary: 220 14% 92%;
+  --secondary-foreground: 224 28% 18%;
+
+  /* Muted */
+  --muted: 220 14% 93%;
+  --muted-foreground: 220 12% 46%;
+
+  /* Accent — warm gold (luxury touch on interactive highlights) */
+  --accent: 38 78% 52%;               /* #E8A130 — burnished gold              */
+  --accent-foreground: 224 28% 10%;
+
+  /* Destructive */
+  --destructive: 0 68% 49%;           /* #C82828                               */
+  --destructive-foreground: 0 0% 100%;
+
+  /* Borders / inputs */
+  --border: 220 14% 88%;
+  --input: 220 14% 93%;
+  --ring: 222 62% 26%;
+
+  /* ── Sidebar — refined charcoal slate ─────────────────────────────────── */
+  --sidebar: 218 16% 13%;             /* #1a1f2b — dark charcoal slate         */
+  --sidebar-foreground: 218 18% 80%;
+  --sidebar-border: 218 12% 21%;
+  --sidebar-primary: 38 78% 52%;      /* gold active indicator                 */
+  --sidebar-primary-foreground: 218 16% 10%;
+  --sidebar-accent: 218 16% 21%;      /* hover / active background             */
+  --sidebar-accent-foreground: 0 0% 100%;
+  --sidebar-ring: 38 78% 52%;
+
+  /* ── Typography ───────────────────────────────────────────────────────── */
+  --app-font-sans: Helvetica, Arial, sans-serif;
+  --app-font-serif: Helvetica, Arial, sans-serif;
+  --app-font-mono: Helvetica, Arial, sans-serif;
+
+  --radius: 0.5rem;
+  --opaque-button-border-intensity: -8;
+}
+
+/* ── Clean product heading styles ────────────────────────────────────────── */
+
+h1, h2 {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+}
+
+/* Keep identifiers and numeric data in the same minimalist app typeface. */
+
+.font-mono, [class*="font-mono"] {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+/* ── Card elevation — subtle shadow on light bg ──────────────────────────── */
+
+.card-elevated {
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.04);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}

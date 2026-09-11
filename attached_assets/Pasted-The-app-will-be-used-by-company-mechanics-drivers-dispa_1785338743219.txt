@@ -1,0 +1,180 @@
+The app will be used by company mechanics, drivers, dispatch, and management to track preventive maintenance, inspections, defects, repairs, and vehicle compliance for semi-trucks, trailers, and refrigerated trailers.
+Do not include parts inventory or parts purchasing. Parts will be sourced externally, but the mechanic must be able to record the vendor name, part description, invoice number, cost, and upload the invoice against the work order.
+User Roles
+Administrator
+Manage users and permissions
+Add trucks, trailers, mechanics, and drivers
+Configure PM intervals
+View all maintenance and compliance reports
+Maintenance Manager
+Create and assign work orders
+Review defects
+Approve repairs
+Place or remove vehicles from service
+Review completed work
+Mechanic
+View assigned jobs
+Perform PM1, PM2, greasing, inspections, and repairs
+Complete digital checklists
+Record measurements, notes, labour hours, parts used, and vendor invoices
+Upload before-and-after photos
+Mark defects as repaired, deferred, restricted, or out of service
+Digitally sign completed work
+Driver
+Complete daily vehicle inspections
+Report defects with photos and location
+View vehicle maintenance status
+Receive confirmation when the vehicle is released
+Main Workflow
+Add each truck and trailer with:
+Unit number
+VIN
+Licence plate
+Year, make, and model
+Odometer or trailer mileage
+Engine and reefer hours
+PM1, PM2, greasing, PMCVI, and U.S. annual inspection due dates
+Create automatic maintenance reminders based on:
+Kilometres
+Engine hours
+Reefer hours
+Calendar date
+Whichever limit is reached first
+Allow the system to automatically create or manually create work orders for:
+PM1
+PM2
+Regular greasing
+Trailer maintenance
+Reefer maintenance
+Driver-reported defects
+Breakdown repairs
+Roadside inspection repairs
+PMCVI preparation
+General repairs
+Work-order process:
+Draft
+Assigned
+Vehicle checked in
+Inspection in progress
+Additional repair approval required
+Repair in progress
+Waiting for externally sourced part
+Quality-control review
+Completed
+Released to service
+Restricted
+Out of service
+Each checklist item must allow:
+Pass
+Monitor
+Repair required
+Major defect
+Out of service
+Notes
+Measurement
+Photo upload
+PM1 checklist should include:
+Fluids and leaks
+Belts and hoses
+Brakes
+Steering
+Suspension
+Tires and wheels
+Lights and electrical
+Fifth wheel and coupling
+Safety equipment
+Lubrication points
+PM2 should include all PM1 items plus:
+Oil and filter service
+Fuel and air filters
+Brake measurements
+Wheel-end inspection
+Diagnostic fault-code scan
+Battery and charging test
+Emissions and aftertreatment inspection
+Transmission and differential inspection
+Detailed road test
+Trailer checklist should include:
+Brakes
+Tires and wheels
+Suspension
+Kingpin and coupling
+Landing gear
+Frame and crossmembers
+Doors and cargo security
+Lights, wiring, ABS, and reflective tape
+Refrigerated trailer checklist should include:
+Reefer hours
+Fault codes
+Engine fluids
+Belts and hoses
+Battery
+Compressor
+Temperature sensors
+Door seals
+Temperature pull-down test
+Final operating temperature
+Driver defect workflow:
+Driver selects vehicle
+Records defect, location, odometer, photos, and severity
+Maintenance manager reviews it
+Work order is created
+Vehicle is marked available, restricted, or out of service
+Mechanic repairs and signs
+Manager performs final release
+Out-of-service controls:
+Immediately remove the vehicle from dispatch availability
+Require repair documentation
+Require mechanic signature
+Require supervisor approval before release
+Keep a full audit trail of who changed the status
+PMCVI module:
+Track inspection and expiry dates
+Send reminders at 90, 60, 30, 14, and 7 days
+Create a PMCVI preparation checklist
+Upload DriveON inspection documents
+Record pass, fail, repairs, and reinspection
+Do not allow internal mechanics to mark a statutory PMCVI as officially completed unless valid external DriveON documentation is uploaded
+U.S. compliance module:
+Track annual inspection expiry for each tractor and trailer
+Store inspector and brake-inspector qualifications
+Upload inspection reports
+Track roadside inspection violations and repairs
+Maintain a complete inspection and repair history
+Dashboard should display:
+Vehicles available
+Vehicles in repair
+Vehicles out of service
+Overdue PM1 and PM2
+Upcoming PMCVI inspections
+Upcoming U.S. annual inspections
+Open driver defects
+Breakdown history
+Maintenance cost per vehicle
+Vehicle downtime
+Required reports:
+Complete vehicle maintenance history
+PM compliance report
+Open-defect report
+Out-of-service report
+Mechanic productivity report
+Maintenance cost report
+Roadside inspection corrective-action report
+PMCVI and annual inspection expiry report
+Technical Requirements
+Responsive desktop and mobile design
+Premium, professional transportation-industry interface
+Dark navy, white, charcoal, and subtle red accents
+Secure role-based login
+PostgreSQL database
+Searchable and filterable tables
+Photo, PDF, and invoice uploads
+Digital signatures
+Automatic reminders
+PDF work-order generation
+Export reports to PDF and Excel
+Complete audit logs
+Vehicle QR codes for fast mechanic access
+No work order can be deleted after completion
+Every edit must record user, date, time, and original value
+Build the database schema, authentication, dashboard, vehicle profiles, inspection forms, work orders, reports, and mobile mechanic interface as a functional production-ready MVP
