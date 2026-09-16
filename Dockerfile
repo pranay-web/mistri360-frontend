@@ -77,6 +77,6 @@ EXPOSE 18231
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
-  CMD wget -qO- http://localhost:18231/fleet/ || exit 1
+  CMD wget -qO- http://127.0.0.1:18231/fleet/ || exit 1
 
 CMD ["nginx", "-g", "daemon off;"]
