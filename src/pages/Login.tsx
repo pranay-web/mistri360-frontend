@@ -20,8 +20,8 @@ import { Link } from "wouter";
 import { Mistri360Mark } from "@/components/layout/Mistri360Mark";
 
 const loginSchema = z.object({
-  email: z.string().email({ message: "Please enter a valid email address." }),
-  password: z.string().min(1, { message: "Password is required." }),
+  email: z.string().email({ message: "Please enter a valid email address." }).max(100, { message: "Email is too long." }),
+  password: z.string().trim().min(1, { message: "Password is required." }).max(128, { message: "Password is too long." }),
 });
 
 type LoginFormValues = z.infer<typeof loginSchema>;

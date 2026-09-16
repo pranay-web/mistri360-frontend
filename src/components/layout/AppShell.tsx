@@ -28,6 +28,7 @@ import {
   ChevronRight,
   Building2,
   FileText,
+  Receipt,
 } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
@@ -41,6 +42,7 @@ export const ALL_LINKS = [
   { path: "/work-orders", label: "Work Orders",              icon: Wrench,          section: "FLEET MAINTENANCE" },
   { path: "/customers",   label: "Customers",                icon: Building2,       section: "OPERATIONS" },
   { path: "/estimates",   label: "Estimates",                icon: FileText,         section: "OPERATIONS" },
+  { path: "/invoices",    label: "Invoices",                 icon: Receipt,         section: "OPERATIONS" },
   { path: "/checklists",  label: "Checklists",               icon: ClipboardCheck,  section: "OPERATIONS" },
   { path: "/defects",     label: "Defects",                  icon: AlertTriangle,   section: "OPERATIONS" },
   { path: "/compliance",  label: "Compliance",               icon: ShieldCheck,     section: "COMPLIANCE" },
@@ -48,9 +50,9 @@ export const ALL_LINKS = [
 ];
 
 export const ROLE_ACCESS: Record<string, string[]> = {
-  admin:    ["/dashboard", "/vehicles", "/work-orders", "/customers", "/estimates", "/checklists", "/defects", "/compliance", "/reports"],
-  manager:  ["/dashboard", "/vehicles", "/work-orders", "/customers", "/estimates", "/checklists", "/defects", "/compliance", "/reports"],
-  mechanic: ["/dashboard", "/vehicles", "/work-orders", "/customers", "/estimates", "/checklists", "/defects", "/compliance", "/reports"],
+  admin:    ["/dashboard", "/vehicles", "/work-orders", "/customers", "/estimates", "/invoices", "/checklists", "/defects", "/compliance", "/reports"],
+  manager:  ["/dashboard", "/vehicles", "/work-orders", "/customers", "/estimates", "/invoices", "/checklists", "/defects", "/compliance", "/reports"],
+  mechanic: ["/dashboard", "/vehicles", "/work-orders", "/customers", "/estimates", "/invoices", "/checklists", "/defects", "/compliance", "/reports"],
   driver:   ["/defects"],
 };
 

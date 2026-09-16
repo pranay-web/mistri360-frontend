@@ -25,6 +25,7 @@ import { AppShell } from '@/components/layout/AppShell';
 import Platform from '@/pages/Platform';
 import CustomersPage from '@/pages/Customers';
 import EstimatesPage from '@/pages/Estimates';
+import InvoicesPage from '@/pages/Invoices';
 
 function ProtectedRoutes() {
   const { data: user, isLoading, isError } = useGetMe({
@@ -64,9 +65,9 @@ function ProtectedRoutes() {
   if (location === '/platform') return <Redirect to={workspaceHome} />;
 
   const access: Record<string, string[]> = {
-    admin: ["/dashboard", "/vehicles", "/work-orders", "/customers", "/estimates", "/checklists", "/defects", "/compliance", "/reports"],
-    manager: ["/dashboard", "/vehicles", "/work-orders", "/customers", "/estimates", "/checklists", "/defects", "/compliance", "/reports"],
-    mechanic: ["/dashboard", "/vehicles", "/work-orders", "/customers", "/estimates", "/checklists", "/defects", "/compliance", "/reports"],
+    admin: ["/dashboard", "/vehicles", "/work-orders", "/customers", "/estimates", "/invoices", "/checklists", "/defects", "/compliance", "/reports"],
+    manager: ["/dashboard", "/vehicles", "/work-orders", "/customers", "/estimates", "/invoices", "/checklists", "/defects", "/compliance", "/reports"],
+    mechanic: ["/dashboard", "/vehicles", "/work-orders", "/customers", "/estimates", "/invoices", "/checklists", "/defects", "/compliance", "/reports"],
     driver: ["/defects"],
   };
   const permitted = (access[role] || []).some((path) => location === path || location.startsWith(`${path}/`));
@@ -94,6 +95,8 @@ function ProtectedRoutes() {
         <Route path="/customers" component={CustomersPage} />
         <Route path="/estimates" component={() => <EstimatesPage />} />
         <Route path="/estimates/:id">{(params) => <EstimatesPage id={Number(params?.id)} />}</Route>
+        <Route path="/invoices" component={() => <InvoicesPage />} />
+        <Route path="/invoices/:id">{(params) => <InvoicesPage id={Number(params?.id)} />}</Route>
         <Route path="/checklists" component={ChecklistsPage} />
         <Route path="/defects">
           {() => <Suspense fallback={<div className="flex items-center justify-center py-20 text-muted-foreground animate-pulse">Loading…</div>}><LazyDefects /></Suspense>}
